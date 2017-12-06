@@ -58,4 +58,12 @@ class InteractiveRecord
 
     end
 
+    def self.find_by(attribute)
+      sql = <<-SQL
+      SELECT *
+      FROM #{self.table_name}
+      WHERE #{self.column_names} = '#{attribute}' 
+      SQL
+    end
+
 end
