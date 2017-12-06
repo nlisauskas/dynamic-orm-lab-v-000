@@ -30,7 +30,13 @@ class InteractiveRecord
     end
 
     def col_names_for_insert
-      self.class.column_names
+      values = []
+      self.class.column_names.each do |column_name|
+        if column_name != "id"
+          values << column_name
+        end
+      end
+      values.join(",")
     end
 
     def values_for_insert
