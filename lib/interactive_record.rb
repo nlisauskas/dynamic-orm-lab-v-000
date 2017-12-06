@@ -62,9 +62,7 @@ class InteractiveRecord
       sql = <<-SQL
       SELECT *
       FROM #{self.table_name}
-      WHERE #{self.column_names.each do |col_name|
-      col_name = attribute
-    end}
+      WHERE #{attribute} = #{attribute}
       SQL
 
       DB[:conn].execute(sql)
